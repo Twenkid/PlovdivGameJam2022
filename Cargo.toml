@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-
+# Bevy 0.6s
 bevy = { version = "0.6", features = ["dynamic"] }
 
 # Use branch for bevy = 0.6
@@ -14,3 +14,6 @@ bevy_transform_gizmo = { git = "https://github.com/elpiel/bevy_transform_gizmo",
 
 # For bevy = 0.6
 bevy_mod_picking = "0.5"
+
+# Logging
+log = "0.4"

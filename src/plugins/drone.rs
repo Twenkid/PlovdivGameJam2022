@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+use log::info;
 
 // Should: Add a drone asset
 // Should: Add a be able to manipulate the drone model
@@ -25,6 +26,9 @@ fn setup(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
+    info!("Setup Drone asset");
+    // TODO: Add drone asset
+
     // plane
     commands
         .spawn_bundle(PbrBundle {
