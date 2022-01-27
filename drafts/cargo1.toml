@@ -1,0 +1,6 @@
+[dependencies]
+approx = "0.4"
+serde = "1.0"
+#Transfor and picking, for load_gltf PGJ2022
+bevy_transform_gizmo = { git = "https://github.com/ForesightMiningSoftwareCorporation/bevy_transform_gizmo", branch = "main" }
+bevy_mod_picking = "0.5"
