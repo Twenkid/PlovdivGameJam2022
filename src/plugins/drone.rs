@@ -22,9 +22,32 @@ impl Plugin for DronePlugin {
 /// set up a simple 3D scene
 fn setup(
     mut commands: Commands,
+    asset_server: Res<AssetServer>,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
+
+    let _scenes: Vec<HandleUntyped> = asset_server.load_folder("models").unwrap();
+    
+    let drone_handle: Handle<Mesh> = asset_server.load("models/drone.gltf#RootNode (gltf orientation matrix)");
+
+     // You can also add assets directly to their Assets<T> storage:
+     let drone_material_handle = materials.add(StandardMaterial {
+        base_color: Color::rgb(0.8, 0.7, 0.6),
+        ..Default::default()
+    });
+
+    // drone
+    commands.spawn_bundle(PbrBundle {
+        mesh: drone_handle,
+        material: drone_material_handle.clone(),
+        transform: Transform::from_xyz(0.0, 0.0, 0.0),
+        // TODO: Should we scale?
+        // .with_scale(Vec3::new(2.0, 2.0, 2.0)),
+        ..Default::default()
+    });
+
+
     // plane
     commands
         .spawn_bundle(PbrBundle {
