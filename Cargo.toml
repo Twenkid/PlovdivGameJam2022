@@ -7,8 +7,10 @@ edition = "2021"
 
 [dependencies]
 
-bevy = { version = "0.6.0", features = ["dynamic"] }
+bevy = { version = "0.6", features = ["dynamic"] }
 
-bevy_transform_gizmo = { git = "https://github.com/ForesightMiningSoftwareCorporation/bevy_transform_gizmo", branch = "main" }
+# Use branch for bevy = 0.6
+bevy_transform_gizmo = { git = "https://github.com/elpiel/bevy_transform_gizmo", branch = "fix-bevy-0.6" }
 
+# For bevy = 0.6
 bevy_mod_picking = "0.5"
