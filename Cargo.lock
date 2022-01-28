@@ -1294,6 +1294,7 @@ dependencies = [
  "bevy",
  "bevy_mod_picking",
  "bevy_transform_gizmo",
+ "log",
 ]
 
 [[package]]
