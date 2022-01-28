@@ -15,5 +15,11 @@ bevy_transform_gizmo = "0.1"
 # For bevy = 0.6
 bevy_mod_picking = "0.5"
 
+# For bevy = 0.6
+bevy_config_cam = "0.1"
+
 # Logging
 log = "0.4"
+
+[patch.crates-io]
+bevy_config_cam = { git = "https://github.com/elpiel/bevy_config_cam", branch = "fix-bevy-0.6" }
