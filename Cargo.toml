@@ -18,6 +18,11 @@ bevy_mod_picking = "0.5"
 # For bevy = 0.6
 bevy_config_cam = "0.1"
 
+# for serde feature
+mav-sdk = { git = "https://github.com/AeroRust/mav", branch = "main", features = ["serde"] }
+
+# futures
+futures-lite = "1"
 # Logging
 log = "0.4"
 
