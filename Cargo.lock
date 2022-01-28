@@ -682,7 +682,8 @@ dependencies = [
 [[package]]
 name = "bevy_transform_gizmo"
 version = "0.1.0"
-source = "git+https://github.com/elpiel/bevy_transform_gizmo?branch=fix-bevy-0.6#080cb925bef7796afa62ede7716e2f1451082995"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f17f6098c2938933f6ac510857e2df0e45e0dc66339ae078a8255a6ea96ae9f9"
 dependencies = [
  "bevy",
  "bevy_mod_picking",
