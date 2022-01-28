@@ -12,7 +12,7 @@ impl Plugin for DronePlugin {
 
         app
         .add_plugins(bevy_mod_picking::DefaultPickingPlugins)
-        .add_plugin(bevy_transform_gizmo::TransformGizmoPlugin)
+        .add_plugin(bevy_transform_gizmo::TransformGizmoPlugin::default())
         .add_startup_system(setup)
         //     .add_system(greet_people);
         ;
