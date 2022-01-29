@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 # Bevy 0.6s
-bevy = { version = "0.6", features = ["dynamic"] }
+bevy = { version = "0.6" }
 
 # For bevy = 0.6
 bevy_transform_gizmo = "0.1"
@@ -21,10 +21,19 @@ bevy_config_cam = "0.1"
 # for serde feature
 mav-sdk = { git = "https://github.com/AeroRust/mav", branch = "main", features = ["serde"] }
 
+# Async runtime for mav-sdk
+tokio = {version = "1", features = ["sync"]}
+# compatibility layer, becuase mav-sdk client uses Tokio
+async-compat = "0.2.1"
 # futures
 futures-lite = "1"
 # Logging
 log = "0.4"
+
+# [target.'cfg(unix)'.dependencies]
+# For Unix add the `dynamic` feature to bevy
+# bevy = { version = "0.6", features = ["dynamic"] }
+
 
 [patch.crates-io]
 bevy_config_cam = { git = "https://github.com/elpiel/bevy_config_cam", branch = "fix-bevy-0.6" }
