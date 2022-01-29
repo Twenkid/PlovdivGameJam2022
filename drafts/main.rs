@@ -66,25 +66,21 @@ mut game: ResMut<Game>){
 
     if keyboard_input.just_pressed(KeyCode::S) {
         info!("'S' just pressed {}", game.y);
-        //x=x+0.5;
         game.y-=st;
     }
 
     if keyboard_input.just_released(KeyCode::A) {
         info!("'A' just released {}", game.x);
-        //y=y+0.3;
         game.x+=st;
     }
     if keyboard_input.just_released(KeyCode::D) {
         info!("'D' just released {}", game.x);
-        //z=z+0.4;
         game.x-=st;
     }
             
      for mut transform in scene_entities.iter_mut() {
          info!("transform in scene_entities?");
             // transform.scale = Vec3::new(0.03, 0.03, 0.03);
-            //transform.rotation = Quat::from_xyzw(event.x, event.y, event.z, event.w);
             //transform.rotation = Quat::from_xyzw(event.x, event.y, event.z, event.w);
             transform.rotation = Quat::from_xyzw(game.x, game.y, game.z, game.w);            
         }

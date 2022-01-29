@@ -25,6 +25,7 @@ impl Plugin for DronePlugin {
             brightness: 1.0 / 5.0f32,
         })
         .init_resource::<SceneInstance>()
+        .init_resource::<Game>() //++
         //
         // Config Cam
         //
@@ -83,6 +84,16 @@ fn load_drone_asset(mut commands: Commands, asset_server: Res<AssetServer>) {
 // }
 
 //struct Game; //++
+//State
+#[derive(Default)]
+struct Game {
+    player: Option<Entity>,
+    w: f32,
+    x: f32,
+    y: f32,
+    z: f32,    
+}
+
 
 /// set up a simple 3D scene
 fn setup(
@@ -184,23 +195,28 @@ fn scene_update(
 fn move_scene_entities(
     mut quaternion_events: EventReader<Quaternion>,
     mut scene_entities: Query<&mut Transform, With<DroneComponent>>,
+    mut game: ResMut<Game>,
 ) {
     let mut w: f32 = 0.71825;
     let mut x: f32 = -0.03567563;
     let mut y: f32 = 0.03567563;
     let mut z: f32 = 0.03; //0.69 ...
     //Add Time etc.  w.cos ... sin ...    
-    println!("move_scene...");
+    //println!("move_scene...");
     //if not events:
-    /*
+        
     for mut transform in scene_entities.iter_mut() {
+                info!("TRANSFORM???");
+                info!("{},{},{}.{}", game.w, game.x, game.y, game.z);
             // transform.scale = Vec3::new(0.03, 0.03, 0.03);
             //transform.rotation = Quat::from_xyzw(event.x, event.y, event.z, event.w);
             //transform.rotation = Quat::from_xyzw(event.x, event.y, event.z, event.w);
-            transform.rotation = Quat::from_xyzw(x, y, z, w);            
-        }
-        */
-     
+            //if (let Some(game) = game) {
+            transform.rotation = Quat::from_xyzw(game.x, y, z, w);            
+            //transform.rotation = Quat::from_xyzw(g.x, y, z, w);            
+            }
+    
+         
     for event in quaternion_events.iter() {
         info!("Got quaternion event");
         for mut transform in scene_entities.iter_mut() {
