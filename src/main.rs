@@ -11,7 +11,7 @@ fn main() {
             // .insert_resource(rx)
             .add_plugins(DefaultPlugins)
             .add_plugin(DronePlugin)
-            // .add_plugin(MavsdkPlugin)
+            .add_plugin(MavsdkPlugin)
             .run();
 }
 

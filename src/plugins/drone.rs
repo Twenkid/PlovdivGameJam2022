@@ -1,10 +1,7 @@
 use bevy::{gltf::Gltf, prelude::*, scene::InstanceId};
-// use bevy_config_cam::{ConfigCam, MovementSettings, PlayerSettings};
 use log::info;
 use mav_sdk::grpc::telemetry::Quaternion;
 
-// Should: Add a drone asset
-// Should: Add a be able to manipulate the drone model
 pub struct DronePlugin;
 
 // Resource to hold the scene `instance_id` until it is loaded
@@ -24,27 +21,6 @@ impl Plugin for DronePlugin {
             brightness: 1.0 / 5.0f32,
         })
         .init_resource::<SceneInstance>()
-        //
-        // Config Cam
-        //
-        // .add_plugin(ConfigCam)
-        // .insert_resource(MovementSettings {
-        //     sensitivity: 0.00015, // default: 0.00012
-        //     speed: 12.0,          // default: 12.0
-        //     ..Default::default()
-        // })
-        // .insert_resource(PlayerSettings {
-        //     pos: Transform::from_scale(Vec3::new(0.03, 0.03, 0.03)),
-        //     player_asset: "models/drone.gltf#Scene0",
-        //     ..Default::default()
-        // })
-        //
-        //
-        // .add_plugins(bevy_mod_picking::DefaultPickingPlugins)
-        // .add_plugin(bevy_transform_gizmo::TransformGizmoPlugin::default())
-        // .add_plugin(ConfigCam)
-        // TODO: REMOVE
-        .add_event::<Quaternion>()
         // Load drone asset
         .add_startup_system(load_drone_asset)
         // setup rest of plugin
@@ -92,8 +68,6 @@ fn setup(
     // mut materials: ResMut<Assets<StandardMaterial>>,
     mut scene_spawner: ResMut<SceneSpawner>,
     mut scene_instance: ResMut<SceneInstance>,
-    // for writing dummy quaternion for testing
-    mut event_writer: EventWriter<Quaternion>,
 ) {
     info!("Setup Drone asset");
 
@@ -137,29 +111,6 @@ fn setup(
         })
         .insert_bundle(bevy_mod_picking::PickingCameraBundle::default())
         .insert(bevy_transform_gizmo::GizmoPickSource::default());
-
-    // // simple scene
-    // {
-    //     // plane
-    //     commands
-    //         .spawn_bundle(PbrBundle {
-    //             mesh: meshes.add(Mesh::from(shape::Plane { size: 5.0 })),
-    //             material: materials.add(Color::rgb(0.3, 0.5, 0.3).into()),
-    //             ..Default::default()
-    //         })
-    //         .insert_bundle(bevy_mod_picking::PickableBundle::default())
-    //         .insert(bevy_transform_gizmo::GizmoTransformable);
-    //     // cube
-    //     commands
-    //         .spawn_bundle(PbrBundle {
-    //             mesh: meshes.add(Mesh::from(shape::Cube { size: 1.0 })),
-    //             material: materials.add(Color::rgb(0.8, 0.7, 0.6).into()),
-    //             transform: Transform::from_xyz(0.0, 0.5, 0.0),
-    //             ..Default::default()
-    //         })
-    //         .insert_bundle(bevy_mod_picking::PickableBundle::default())
-    //         .insert(bevy_transform_gizmo::GizmoTransformable);
-    // }
 }
 
 fn scene_update(
@@ -184,19 +135,7 @@ fn move_scene_entities(
     mut quaternion_events: EventReader<Quaternion>,
     mut scene_entities: Query<&mut Transform, With<DroneComponent>>,
 ) {
-    // TODO: REMOVE!
-    let quaternion = Quaternion {
-        w: 0.7182582,
-        x: -0.033567563,
-        y: 0.032205198,
-        z: 0.69421995,
-    };
-    for mut transform in scene_entities.iter_mut() {
-        transform.rotation = Quat::from_xyzw(quaternion.x, quaternion.y, quaternion.z, quaternion.w);
-    }
-
     for event in quaternion_events.iter() {
-        info!("Got quaternion event");
         for mut transform in scene_entities.iter_mut() {
             // transform.scale = Vec3::new(0.03, 0.03, 0.03);
             transform.rotation = Quat::from_xyzw(event.x, event.y, event.z, event.w);
