@@ -21,6 +21,7 @@ It takes a few minutes (10-15 min) for the full simulation to be up and running,
 
 - Drome simulation using Gazebo simulation and the PX4 autopilot.
 - MAVSDK - a fancy gRPC server (written in C)
+- Windows: Docker Desktop must be running before invoking. Note that Docker requires Windows Pro license, because it relies on HyperV for the virtualization.
 
 2. `cargo run`
     For rust setup with bevy see: https://bevyengine.org/learn/book/getting-started/setup/
