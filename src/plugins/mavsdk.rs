@@ -72,9 +72,7 @@ fn moving_drone(
         match key {
             // roll left (clock-wise) from front!
             KeyCode::A => {
-                // 1.6666...7 rpm
                 y += 0.5;
-                // attitude.roll_deg = roll_deg;
             }
             // roll right (clock-wise)
             KeyCode::D => {
