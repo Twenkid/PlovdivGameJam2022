@@ -1,6 +1,6 @@
 use bevy::{gltf::Gltf, prelude::*, scene::InstanceId};
 use log::info;
-use mav_sdk::grpc::telemetry::Quaternion;
+use mav_sdk::grpc::telemetry::{Position, Quaternion};
 
 pub struct DronePlugin;
 
@@ -11,6 +11,9 @@ struct SceneInstance(Option<InstanceId>);
 #[derive(Component)]
 struct DroneComponent;
 
+#[derive(Default, Debug)]
+pub struct InitPosition(Option<Position>);
+
 impl Plugin for DronePlugin {
     fn build(&self, app: &mut App) {
         // add things to your app here
@@ -20,6 +23,9 @@ impl Plugin for DronePlugin {
             color: Color::WHITE,
             brightness: 1.0 / 5.0f32,
         })
+        // init drone position, taken from the first response of the Drone
+        .init_resource::<InitPosition>()
+
         .init_resource::<SceneInstance>()
         // Load drone asset
         .add_startup_system(load_drone_asset)
@@ -133,8 +139,38 @@ fn scene_update(
 
 fn move_scene_entities(
     mut quaternion_events: EventReader<Quaternion>,
+    mut position_events: EventReader<Position>,
     mut scene_entities: Query<&mut Transform, With<DroneComponent>>,
+    mut init_position: ResMut<InitPosition>,
 ) {
+    for position in position_events.iter() {
+        let compensate_position = {
+            let set_init_position = match &init_position.0 {
+                Some(init_position) => init_position.clone(),
+                None => {
+                    // set the init position
+                    init_position.0 = Some(position.clone());
+
+                    // and return it
+                    position.clone()
+                },
+            };
+
+            let compensate_for_coords = 100.0;
+
+            Vec3::new(
+                (position.latitude_deg - set_init_position.latitude_deg) as f32 * compensate_for_coords,
+                (position.longitude_deg - set_init_position.longitude_deg) as f32 * compensate_for_coords,
+                // in cm
+                position.absolute_altitude_m - set_init_position.absolute_altitude_m / 100.0,
+            )
+        };
+
+        for mut transform in scene_entities.iter_mut() {
+            transform.translation = compensate_position;
+        }
+    }
+
     for event in quaternion_events.iter() {
         for mut transform in scene_entities.iter_mut() {
             // transform.scale = Vec3::new(0.03, 0.03, 0.03);
