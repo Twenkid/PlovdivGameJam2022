@@ -12,14 +12,14 @@ You can actually use it to control a real-life drone!
 
 Requirements:
 - [The Rust programming language](https://rust-lang.org)
-- [Bevy v0.6 game engine requirements for Rust and prescuits](https://bevyengine.org/learn/book/getting-started/setup/)
+- [Bevy v0.6 game engine requirements including for Rust](https://bevyengine.org/learn/book/getting-started/setup/)
 - Docker with Docker-compose (for version of docker-compose files 3.8)
 
 
 1. `docker-compose up -d`
 It takes a few minutes (10-15 min) for the full simulation to be up and running, which includes:
 
-- Drome simulation using Gazebo simulation using the PX4 autopilot.
+- Drome simulation using Gazebo simulation and the PX4 autopilot.
 - MAVSDK - a fancy gRPC server (written in C)
 
 2. `cargo run`
@@ -37,4 +37,4 @@ Idea, research and lead developer, Linux: **elpiel**
 
 Second developer, testing, R&D, Windows: **twenkid**
 
-Drone model: ...
+Drone model: https://sketchfab.com/3d-models/petrone-battle-drone-149aa3e19502471db0dd501bd35bbbc9
