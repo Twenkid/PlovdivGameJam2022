@@ -2,7 +2,7 @@ use async_compat::CompatExt;
 use bevy::{prelude::*, tasks::AsyncComputeTaskPool};
 use futures_lite::future;
 use mav_sdk::{
-    grpc::{telemetry::{AttitudeQuaternionResponse, Quaternion}, manual_control::{SetManualControlInputRequest, StartAltitudeControlRequest}},
+    grpc::{telemetry::{AttitudeQuaternionResponse, Quaternion}, manual_control::{SetManualControlInputRequest, StartAltitudeControlRequest}, action::{TakeoffRequest, ArmRequest}},
     Drone,
 };
 use tokio::sync::mpsc::{channel, Receiver, Sender};
@@ -76,12 +76,38 @@ fn moving_drone(
             },
             // take-off
             KeyCode::T => {
-                todo!("Drone take-off")
+                let mut drone = drone.clone();
+                thread_pool.spawn(async move {
+                    let request = TakeoffRequest { };
+                    match drone.action.takeoff(request).await {
+                        Ok(response) => {
+                            info!("Got an Takeoff response: {:?}", response.get_ref().action_result);
+                        },
+                        Err(err) => {
+                            error!("Got an error status for Takeoff request: {:?}", err);
+                        },
+                    }
+                }).detach();
             },
             // land
             KeyCode::L => {
                 
                 todo!("Drone land")
+            },
+            // Arm drone before take-off
+            KeyCode::Z => {
+                let mut drone = drone.clone();
+                thread_pool.spawn(async move {
+                    let request = ArmRequest { };
+                    match drone.action.arm(request).await {
+                        Ok(response) => {
+                            info!("Got an Arm response: {:?}", response.get_ref().action_result);
+                        },
+                        Err(err) => {
+                            error!("Got an error status for Arm request: {:?}", err);
+                        },
+                    }
+                }).detach();
             },
             // Attitude (trust)
             KeyCode::Space => {
