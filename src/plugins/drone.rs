@@ -43,6 +43,8 @@ impl Plugin for DronePlugin {
         // .add_plugins(bevy_mod_picking::DefaultPickingPlugins)
         // .add_plugin(bevy_transform_gizmo::TransformGizmoPlugin::default())
         // .add_plugin(ConfigCam)
+        // TODO: REMOVE
+        .add_event::<Quaternion>()
         // Load drone asset
         .add_startup_system(load_drone_asset)
         // setup rest of plugin
@@ -94,15 +96,6 @@ fn setup(
     mut event_writer: EventWriter<Quaternion>,
 ) {
     info!("Setup Drone asset");
-
-    info!("Add dummy quaternion for setting the drone flat");
-    let quaternion = Quaternion {
-        w: 0.7182582,
-        x: -0.033567563,
-        y: 0.032205198,
-        z: 0.69421995,
-    };
-    event_writer.send(quaternion);
 
     let drone: Handle<Gltf> = asset_server.load("models/drone.gltf");
     // let drone_scene: Handle<Scene> = asset_server.load("models/drone.gltf#Scene0");
@@ -191,6 +184,17 @@ fn move_scene_entities(
     mut quaternion_events: EventReader<Quaternion>,
     mut scene_entities: Query<&mut Transform, With<DroneComponent>>,
 ) {
+    // TODO: REMOVE!
+    let quaternion = Quaternion {
+        w: 0.7182582,
+        x: -0.033567563,
+        y: 0.032205198,
+        z: 0.69421995,
+    };
+    for mut transform in scene_entities.iter_mut() {
+        transform.rotation = Quat::from_xyzw(quaternion.x, quaternion.y, quaternion.z, quaternion.w);
+    }
+
     for event in quaternion_events.iter() {
         info!("Got quaternion event");
         for mut transform in scene_entities.iter_mut() {
