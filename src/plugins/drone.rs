@@ -90,8 +90,19 @@ fn setup(
     // mut materials: ResMut<Assets<StandardMaterial>>,
     mut scene_spawner: ResMut<SceneSpawner>,
     mut scene_instance: ResMut<SceneInstance>,
+    // for writing dummy quaternion for testing
+    mut event_writer: EventWriter<Quaternion>,
 ) {
     info!("Setup Drone asset");
+
+    info!("Add dummy quaternion for setting the drone flat");
+    let quaternion = Quaternion {
+        w: 0.7182582,
+        x: -0.033567563,
+        y: 0.032205198,
+        z: 0.69421995,
+    };
+    event_writer.send(quaternion);
 
     let drone: Handle<Gltf> = asset_server.load("models/drone.gltf");
     // let drone_scene: Handle<Scene> = asset_server.load("models/drone.gltf#Scene0");
