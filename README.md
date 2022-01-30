@@ -19,7 +19,7 @@ Requirements:
 1. `docker-compose up -d`
 It takes a few minutes (10-15 min) for the full simulation to be up and running, which includes:
 
-- Drome simulation using Gazebo simulation and the PX4 autopilot.
+- Drone simulation using Gazebo simulation and the PX4 autopilot.
 - MAVSDK - a fancy gRPC server (written in C)
 - Windows: Docker Desktop must be running before invoking. Note that Docker requires Windows Pro license, because it relies on HyperV for the virtualization.
 
@@ -32,10 +32,15 @@ Download and install QGroundControl: http://qgroundcontrol.com
 
 ## Credits 
 
-**Team:**
+**Team**
 
-Idea, research and lead developer, Linux: **elpiel**
+* Idea, research and lead developer, Gazebo, Docker setup, MAVSDK, Linux: **elpiel**
 
-Second developer, testing, R&D, Windows: **twenkid**
+* Second developer, testing, R&D, Windows: **twenkid**
 
-Drone model: https://sketchfab.com/3d-models/petrone-battle-drone-149aa3e19502471db0dd501bd35bbbc9
+**Assets** 
+
+Drone model as of 30.1.2022: (C) **pythondesign**, https://sketchfab.com/3d-models/petrone-battle-drone-149aa3e19502471db0dd501bd35bbbc9 
+
+Do not distribute as a stand-alone file and please purchase it for other projects. See the standard license: https://sketchfab.com/licenses
+
