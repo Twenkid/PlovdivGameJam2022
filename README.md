@@ -77,6 +77,6 @@ We participated with the goal to test the capabilities of Bevyengine etc. for ou
 
 ### To do, as of 1.2.2022
 
-* Fix the orientation of the drone - it needs a transform to rotate it to a neutral position, there's something messed up with the quaternions, which we couldn't fix at the event.
+* Fix the orientation of the drone - it needs a transform to rotate it to a neutral position, there's something messed up with the quaternions, which we couldn't fix at the event. Another option: replace the model with another one, having a less restrictive license.
 * Fix the background to sky blue etc., add a greeny grass plane for the ground etc.
 * Complete the "dummy" function which reads positions and rotations of the drone from a json file and allows running without invoking Gazebo from the Docker container.
