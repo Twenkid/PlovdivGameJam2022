@@ -7,10 +7,11 @@ You can either use a drone simulation or...
 
 You can actually use it to control a real-life drone!
 
-**Video Presentation**
+**Additional Materials**
 
-A 5-minute one by **elpiel**, given at the event. Currently only in Bulgarian, we may add a translated/dubbed version:
-https://youtu.be/rAX33LyyB9Q?t=4765
+The project page on the Global Game Jam site: https://globalgamejam.org/2022/games/drone-simulator-8
+
+A 5-minute video presentation, given by **elpiel** at the event. Currently only in Bulgarian, we may add a translated/dubbed version: https://youtu.be/rAX33LyyB9Q?t=4765
 
 ### Works on: Windows & Linux
 
@@ -72,4 +73,10 @@ https://www.bbc.com/travel/article/20201104-europes-city-of-dawdlers-and-loafers
 
 _"The Bulgarian city of Plovdiv has an almost untranslatable word – “aylyak” – that manifests as a refusal to get caught up in the rat race and a scepticism about the value of overwork."_
 
-We participated with the goal to test the capabilities of Bevyengine etc. for our goals with the project and wanted to study and "hack" this new engine for a very short time, without prior experience with it. We couldn't invest a full time focus during part of the event, either, so it's just a beginning.
+We participated with the goal to test the capabilities of Bevyengine etc. for our goals with the project and wanted to study and "hack" this new engine for a very short time, without prior experience with it. We couldn't invest a full time focus during part of the event, either. It's just a beginning and you may join and help as improve it!
+
+### To do, as of 1.2.2022
+
+* Fix the orientation of the drone - it needs a transform to rotate it to a neutral position, there's something messed up with the quaternions, which we couldn't fix at the event.
+* Fix the background to sky blue etc.?
+* Complete the "dummy" function which reads positions and rotations of the drone from a json file and allows running without invoking Gazebo from the Docker container.
