@@ -53,7 +53,9 @@ You can also return the drone to the take off location, make it land, take off a
 
 ## Credits
 
-### Team: "Айляците": "Aylyatsite" or **"The Aylyaks" ~ "The Idles"**(see note)
+### Team
+
+**"Айляците"** - "Aylyatsite", or **"The Aylyaks" ~ "The Idles"**(see note)
 
 Idea, research and lead developer, Linux: **@elpiel**
 
@@ -61,7 +63,9 @@ Second developer, testing, R&D, Windows: **@Twenkid**
 
 ### Assets
 
-### Drone model as of 30.1.2022: (C) **pythondesign**, https://sketchfab.com/3d-models/petrone-battle-drone-149aa3e19502471db0dd501bd35bbbc9 
+**Drone model**
+
+As of 30.1.2022: (C) **pythondesign**, https://sketchfab.com/3d-models/petrone-battle-drone-149aa3e19502471db0dd501bd35bbbc9 
 
 Do not distribute as a stand-alone file and please purchase it for other projects. See the standard license: https://sketchfab.com/licenses
 
