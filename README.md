@@ -53,19 +53,19 @@ You can also return the drone to the take off location, make it land, take off a
 
 ## Credits
 
-**Team**: "Айляците": "Aylyatsite" or **"The Aylyaks" ~ "The Idles"**(see note)
+### Team: "Айляците": "Aylyatsite" or **"The Aylyaks" ~ "The Idles"**(see note)
 
 Idea, research and lead developer, Linux: **@elpiel**
 
 Second developer, testing, R&D, Windows: **@Twenkid**
 
-**Assets** 
+### Assets
 
-**Drone model** as of 30.1.2022: (C) **pythondesign**, https://sketchfab.com/3d-models/petrone-battle-drone-149aa3e19502471db0dd501bd35bbbc9 
+### Drone model as of 30.1.2022: (C) **pythondesign**, https://sketchfab.com/3d-models/petrone-battle-drone-149aa3e19502471db0dd501bd35bbbc9 
 
 Do not distribute as a stand-alone file and please purchase it for other projects. See the standard license: https://sketchfab.com/licenses
 
-**Notes**
+### Notes
 
 "Aylyak" is a jargon word for Plovdiv citizens, who are calm, free of worries, enjoy themselves etc.
 See this BBC article from 2020 which provides an explanation:
@@ -78,5 +78,5 @@ We participated with the goal to test the capabilities of Bevyengine etc. for ou
 ### To do, as of 1.2.2022
 
 * Fix the orientation of the drone - it needs a transform to rotate it to a neutral position, there's something messed up with the quaternions, which we couldn't fix at the event.
-* Fix the background to sky blue etc.?
+* Fix the background to sky blue etc., add a greeny grass plane for the ground etc.
 * Complete the "dummy" function which reads positions and rotations of the drone from a json file and allows running without invoking Gazebo from the Docker container.
