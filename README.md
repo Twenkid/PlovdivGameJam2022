@@ -73,7 +73,9 @@ https://www.bbc.com/travel/article/20201104-europes-city-of-dawdlers-and-loafers
 
 _"The Bulgarian city of Plovdiv has an almost untranslatable word – “aylyak” – that manifests as a refusal to get caught up in the rat race and a scepticism about the value of overwork."_
 
-We participated with the goal to test the capabilities of Bevyengine etc. for our goals with the project and wanted to study and "hack" this new engine for a very short time, without prior experience with it. We couldn't invest a full time focus during part of the event, either. It's just a beginning and you may join and help as improve it!
+We participated with the goal to test the capabilities of Bevyengine etc. for our goals with the project and wanted to study and "hack" this new engine for a very short time, without prior experience with it. We couldn't invest a full time focus during part of the event, either*. It's just a beginning and you may join and help as improve it!
+
+* An additional technical hurdle was working on both Linux and Windows, which required different settings of Rust or reverting to more conservative ones due to the Windows environment.
 
 ### To do, as of 1.2.2022
 
