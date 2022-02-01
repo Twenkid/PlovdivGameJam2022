@@ -7,8 +7,12 @@ You can either use a drone simulation or...
 
 You can actually use it to control a real-life drone!
 
-### Works on: Windows & Linux
+**Video Presentation**
 
+A 5-minute one by **elpiel**, given at the event. Currently only in Bulgarian, we may add a translated/dubbed version:
+https://youtu.be/rAX33LyyB9Q?t=4765
+
+### Works on: Windows & Linux
 
 ### How to run
 
@@ -48,7 +52,7 @@ You can also return the drone to the take off location, make it land, take off a
 
 ## Credits
 
-**Team**
+**Team**: "Айляците": "Aylyatsite" or **"The Aylyaks" ~ "The Idles"**(see note)
 
 Idea, research and lead developer, Linux: **@elpiel**
 
@@ -60,3 +64,12 @@ Second developer, testing, R&D, Windows: **@Twenkid**
 
 Do not distribute as a stand-alone file and please purchase it for other projects. See the standard license: https://sketchfab.com/licenses
 
+**Notes**
+
+"Aylyak" is a jargon word for Plovdiv citizens, who are calm, free of worries, enjoy themselves etc.
+See this BBC article from 2020 which provides an explanation:
+https://www.bbc.com/travel/article/20201104-europes-city-of-dawdlers-and-loafers
+
+_"The Bulgarian city of Plovdiv has an almost untranslatable word – “aylyak” – that manifests as a refusal to get caught up in the rat race and a scepticism about the value of overwork."_
+
+We participated with the goal to test the capabilities of Bevyengine etc. for our goals with the project and wanted to study and "hack" this new engine for a very short time, without prior experience with it. We couldn't invest a full time focus during part of the event, either, so it's just a beginning.
