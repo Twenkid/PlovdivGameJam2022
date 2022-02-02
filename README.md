@@ -81,6 +81,25 @@ We participated with the goal to test the capabilities of Bevyengine etc. for ou
 
 * An additional technical hurdle was working on both Linux and Windows, which required different settings of Rust or reverting to more conservative ones due to the Windows environment.
 
+### Git settings
+
+If errors are encountered during building, referring to SSH access, you may have to setup your git details and an SSH public key for your machine.
+For simplifaction of the setup to use a passphrase, one solution is to add the following in  ```/.cargo/config.toml```:
+
+```
+# Uncomment if you wish to enter SSH passphrase via an interactive dialog
+# [net]  
+git-fetch-with-cli = true   # use the git executable for git operations
+```
+
+You have also to setup your git details in the terminal/console, where the git commands are applied:
+
+```
+git config --global user.email your@email.com
+git config --global user.name username
+```
+
+
 ### To do, as of 1.2.2022
 
 * Fix the orientation of the drone - it needs a transform to rotate it to a neutral position, there's something messed up with the quaternions, which we couldn't fix at the event. Another option: replace the model with another one, having a less restrictive license.
