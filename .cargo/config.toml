@@ -28,3 +28,7 @@ linker = "rust-lld.exe"
 # In most cases the gains are negligible, but if you are on macos and have slow compile times you should see significant gains.
 #[profile.dev]
 #debug = 1
+
+# Uncomment if you wish to enter SSH passphrase via an interactive dialog
+# [net]  
+# git-fetch-with-cli = true   # use the git executable for git operations
