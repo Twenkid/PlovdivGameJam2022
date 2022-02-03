@@ -91,6 +91,7 @@ For simplifaction of the setup to use a passphrase, one solution is to add the f
 # [net]  
 git-fetch-with-cli = true   # use the git executable for git operations
 ```
+https://doc.rust-lang.org/cargo/reference/config.html
 
 You have also to setup your git details in the terminal/console, where the git commands are applied:
 
