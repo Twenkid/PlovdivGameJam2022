@@ -11,7 +11,12 @@ You can actually use it to control a real-life drone!
 
 The project page on the Global Game Jam site: https://globalgamejam.org/2022/games/drone-simulator-8
 
-A 5-minute video presentation, given by **elpiel** at the event. Currently only in Bulgarian, we may add a translated/dubbed version: https://youtu.be/rAX33LyyB9Q?t=4765
+A 5-minute video presentation, given by **elpiel** at the event. Currently only in Bulgarian, we may add a translated/dubbed version:
+https://youtu.be/rAX33LyyB9Q?t=4765
+
+An interview with the team (in Bulgarian):
+Интервю с отбор "Айляците" от събитието, на български:
+https://youtu.be/05ArJw3ARRM
 
 ### Works on: Windows & Linux
 
